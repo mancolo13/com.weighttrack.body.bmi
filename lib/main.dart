@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+import 'theme/app_theme.dart';
+import 'services/storage_service.dart';
+import 'screens/splash_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await StorageService.init();
+  runApp(const WeightTrackApp());
+}
+
+class WeightTrackApp extends StatelessWidget {
+  const WeightTrackApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'WeightTrack',
+      theme: AppTheme.darkTheme,
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
+    );
+  }
+}
